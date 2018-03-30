@@ -7,7 +7,8 @@ var gulp = require('gulp'),
     rename = require("gulp-rename"),
     uglify = require('gulp-uglify'),
     concat = require('gulp-concat'),
-    cssnano = require("gulp-cssnano");
+    cssnano = require("gulp-cssnano"),
+    imagemin = require('gulp-imagemin');
 
 var plumberErrorHandler = {
    errorHandler: notify.onError({
@@ -46,6 +47,12 @@ gulp.task('browser-sync', function() {
    gulp.watch(['build/css/*.css', 'build/js/*.js']).on('change', browserSync.reload);
 });
 
+gulp.task('image-min', function() {
+    gulp.src('./images/*')
+        .pipe(imagemin())
+        .pipe(gulp.dest('build/images'))
+});
+
 gulp.task('watch', function() {
    gulp.watch('sass/*.scss', ['sass']);
    gulp.watch('js/*.js', ['scripts']);
@@ -56,4 +63,4 @@ gulp.task('reload', ['scripts', 'sass'], function() {
     browserSync.reload();
  });
 
-gulp.task('default', ['watch', 'browser-sync', 'scripts', 'sass']);
+gulp.task('default', ['watch', 'browser-sync', 'scripts', 'sass', 'image-min']);
