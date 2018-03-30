@@ -5,8 +5,7 @@
 .site-footer {
    background: rgba(0, 0, 0, 0.5);
    color: white;
-   padding-bottom: $base-space-unit * 2;
-   padding-top: $base-space-unit * 2;
+   padding: $base-space-unit * 2 0;
 
    .site-info {
       @include tablet {

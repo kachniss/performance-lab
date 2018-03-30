@@ -8,7 +8,7 @@
    $(function() {
 
       // set some initial variables
-		var neosData;
+	  var neosData;
       var neosTables = '';
 
       var today = moment().format('YYYY-MM-DD');
@@ -17,7 +17,7 @@
       var endpoint = 'https://api.nasa.gov/neo/rest/v1/feed?start_date=' + today + '&end_date=' + weekFromNow + '&api_key=' + apiKey;
 
       var $loader = $('.ajax-loader');
-		var $neos = $('.neos-list');
+	  var $neos = $('.neos-list');
 
       $.ajax({
          url: endpoint,

@@ -10,10 +10,6 @@
       display: block;
       margin: 0 auto;
    }
-
-   h2 {
-      text-align: center;
-   }
 }
 
 .ajax-loader {
@@ -34,22 +30,6 @@
 .neos-list {
    border-bottom: $med-grey-border;
    padding-bottom: $base-space-unit * 2;
-
-   h3 {
-      border-top: $med-grey-border;
-      padding-top: $base-space-unit;
-
-      @include tablet {
-
-         &:first-of-type {
-            padding-top: $base-space-unit * 2;
-         }
-
-         &:not(:first-of-type) {
-            border-top: 0;
-         }
-      }
-   }
 
    table {
       margin-bottom: $base-space-unit;

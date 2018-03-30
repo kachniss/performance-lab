@@ -64,6 +64,7 @@ h2 {
    font-size: 1.5rem;
    font-weight: 400;
    margin-bottom: $base-space-unit;
+   text-align: center;
 
    @include tablet {
       font-size: 1.8rem;
@@ -75,10 +76,20 @@ h3 {
    font-size: 1.2rem;
    font-weight: 700;
    margin-bottom: $base-space-unit;
+   border-top: $med-grey-border;
+  padding-top: $base-space-unit;
 
-   @include tablet {
-      font-size: 1.5rem;
-   }
+      @include tablet {
+        font-size: 1.5rem;
+
+         &:first-of-type {
+            padding-top: $base-space-unit * 2;
+         }
+
+         &:not(:first-of-type) {
+            border-top: 0;
+         }
+      }
 }
 
 p {
