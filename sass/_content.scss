@@ -77,14 +77,6 @@
          }
       }
 
-      tbody {
-         tr {
-            @include tablet {
-
-            }
-         }
-      }
-
       th, td {
          display: block;
 

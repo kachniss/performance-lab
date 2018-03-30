@@ -30,7 +30,7 @@ gulp.task('sass', function() {
 
 gulp.task('scripts', function(){
     gulp.src(['./js/*.js', './js/vendor/*.js'])
-        //.pipe(concat('scripts.js'))
+        .pipe(concat('scripts.js'))
         .pipe(uglify())
         .pipe(rename({ extname: '.min.js' }))
         .pipe(gulp.dest('./build/js'))
