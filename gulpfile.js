@@ -3,7 +3,11 @@ var gulp = require('gulp'),
     notify = require('gulp-notify'),
     sass = require('gulp-sass'),
     autoprefixer = require('gulp-autoprefixer'),
-    browserSync = require('browser-sync');
+    browserSync = require('browser-sync'),
+    rename = require("gulp-rename"),
+    uglify = require('gulp-uglify'),
+    concat = require('gulp-concat'),
+    cssnano = require("gulp-cssnano");
 
 var plumberErrorHandler = {
    errorHandler: notify.onError({
@@ -25,7 +29,8 @@ gulp.task('sass', function() {
 });
 
 gulp.task('scripts', function(){
-    gulp.src('./js/*.js')
+    gulp.src(['./js/*.js', './js/vendor/*.js'])
+        //.pipe(concat('scripts.js'))
         .pipe(uglify())
         .pipe(rename({ extname: '.min.js' }))
         .pipe(gulp.dest('./build/js'))
@@ -44,6 +49,11 @@ gulp.task('browser-sync', function() {
 gulp.task('watch', function() {
    gulp.watch('sass/*.scss', ['sass']);
    gulp.watch('js/*.js', ['scripts']);
+   gulp.watch('*.html', ['reload']);
 });
 
-gulp.task('default', ['watch', 'browser-sync']);
+gulp.task('reload', ['scripts', 'sass'], function() {
+    browserSync.reload();
+ });
+
+gulp.task('default', ['watch', 'browser-sync', 'scripts', 'sass']);
