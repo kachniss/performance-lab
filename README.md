@@ -7,8 +7,9 @@ A webpage created by RED Academy used for performance drills. Lab work for RED A
 
 ## Technologies & tools used
 * [WebPageTest](http://www.webpagetest.org) for speed testing
-* [Compressor.io](https://compressor.io/compress) for compressing images
 * [CSS Stats](https://cssstats.com) for CSS statistics
+* [Gulp](https://gulpjs.com) for running tasks, building Sass & minification
+* [Imagemin](https://www.npmjs.com/package/imagemin) plugin for image compression
 
 ## License
 This project is licensed under the MIT License.
